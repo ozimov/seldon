@@ -14,8 +14,11 @@
     <inceptionYear>2015</inceptionYear>
 
     <modules>
-        <module>seldon-math</module>
-        <module>seldon-core</module>
+        <module>tools</module>
+        <module>math-and-stat</module>
+        <module>model</module>
+        <module>data-structures</module>
+        <module>core</module>
     </modules>
     <url>https://github.com/ozimov/seldon</url>
     <scm>
@@ -39,12 +42,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <unit-tests.skip>true</unit-tests.skip>
-
-        <com.google.guava>18.0</com.google.guava>
-        <org.slf4j-api>1.7.13</org.slf4j-api>
-        <junit>4.12</junit>
-        <mockito-all>1.10.19</mockito-all>
-        <cirneco-hamcrest-matchers>0.3.0</cirneco-hamcrest-matchers>
 
         <maven-compiler-plugin>3.3</maven-compiler-plugin>
 
@@ -72,18 +69,38 @@
 
     <dependencies>
 
+        <!-- UTILITIES DEPENDENCIES  -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>it.unimi.dsi</groupId>
+            <artifactId>fastutil</artifactId>
+            <version>7.0.10</version>
+        </dependency>
+
         <!-- LOGGING DEPENDENCIES  -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j-api}</version>
+            <version>1.7.13</version>
+        </dependency>
+
+        <!-- CODE QUALITY DEPENDENCIES  -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.1</version>
+            <optional>true</optional>
         </dependency>
 
         <!--  TESTING DEPENDENCIES  -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit}</version>
+            <version>4.12</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -99,13 +116,19 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>${mockito-all}</version>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>it.ozimov</groupId>
+            <artifactId>guava-hamcrest-matchers</artifactId>
+            <version>0.3.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>java8-hamcrest-matchers</artifactId>
-            <version>${cirneco-hamcrest-matchers}</version>
+            <version>0.3.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
